@@ -1,16 +1,9 @@
 import openai
+from pyfiglet import Figlet
 
-banner = '''
-  ____   __   __   ____    ____    _____
-U|  _"\ u\ \ / /U /"___|uU|  _"\ u|_ " _|
-\| |_) |/ \ V / \| |  _ /\| |_) |/  | |
- |  __/  U_|"|_u | |_| |  |  __/   /| |\
- |_|       |_|    \____|  |_|     u |_|U
- ||>>_ .-,//|(_   _)(|_   ||>>_   _// \\_
-(__)__) \_) (__) (__)__) (__)__) (__) (__)
-By CorryL\n'''
-
-print(banner)
+custom_fig = Figlet(font='alligator2')
+print(custom_fig.renderText('PyGpt'))
+print("By CorryL\n")
 
 # Define OpenAI API key
 openai.api_key = ""
@@ -39,9 +32,9 @@ def chatgpt_clone(input, history):
 # Generate a response
 while True:
     try:
-        prompt = input("Hello, how can I help you?\n\n")
+        prompt = input("\033[31mHuman: \033[0m")
         history, response = chatgpt_clone(prompt, history)
-        print(response + "\n")
+        print("\033[32mGpt: \033[0m" + response)
     except Exception as e:
         print("Errore:", e)
         continue
