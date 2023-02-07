@@ -34,7 +34,7 @@ while True:
     try:
         prompt = input("\033[31mHuman: \033[0m")
         history, response = chatgpt_clone(prompt, history)
-        print("\033[32mGpt: \033[0m" + response.strip())
+        print("\033[32mGpt: \033[0m" + response)
     except Exception as e:
         print("Errore:", e)
         continue
